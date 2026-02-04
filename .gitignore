@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+models/
+data/
+.DS_Store
+.idea/
+.vscode/
