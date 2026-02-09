@@ -74,3 +74,5 @@ if __name__ == "__main__":
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     df.to_csv(output_path, index=False)
     print(f"Data saved to {output_path}")
+
+# Updated generator logic for better distribution
