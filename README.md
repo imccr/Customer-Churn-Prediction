@@ -84,3 +84,6 @@ Feel free to fork this repository and submit pull requests. For major changes, p
 ## 📜 License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+## License
+This project is licensed under the MIT License.
