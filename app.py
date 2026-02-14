@@ -11,14 +11,15 @@ st.set_page_config(layout="wide", page_title="Customer Churn Prediction", page_i
 def load_artifacts():
     if not os.path.exists('models/churn_model.pkl'):
         st.error("Model artifacts not found. Please run 'python src/model.py' first.")
-        return None, None, None
+        return None, None, None, None
         
     model = joblib.load('models/churn_model.pkl')
     scaler = joblib.load('models/scaler.pkl')
     encoders = joblib.load('models/encoders.pkl')
-    return model, scaler, encoders
+    features = joblib.load('models/features.pkl')
+    return model, scaler, encoders, features
 
-model, scaler, encoders = load_artifacts()
+model, scaler, encoders, features = load_artifacts()
 
 def main():
     st.title("⚡ Customer Churn Prediction App")
@@ -86,23 +87,8 @@ def main():
             input_data[col] = le.transform(input_data[col])
             
     # Scale numerical features
-    # Note: We need to ensure the columns are in the same order as training
-    # Loading feature names if possible or ensuring order manually
-    # For robust production code, we'd save feature names. Here assuming standard order from generator.
-    # The scaler expects all features, including encoded ones.
-    
-    # Reorder columns to match training logic if needed. 
-    # train_test_split in model.py was on X which was df.drop('Churn'). 
-    # df columns were: gender, SeniorCitizen, Partner, Dependents, tenure, PhoneService, MultipleLines, 
-    # InternetService, OnlineSecurity, OnlineBackup, DeviceProtection, TechSupport, StreamingTV, 
-    # StreamingMovies, Contract, PaperlessBilling, PaymentMethod, MonthlyCharges, TotalCharges.
-    # We should ensure input_data has same column order.
-    
-    cols_order = ['gender', 'SeniorCitizen', 'Partner', 'Dependents', 'tenure', 'PhoneService', 'MultipleLines', 
-                  'InternetService', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV', 
-                  'StreamingMovies', 'Contract', 'PaperlessBilling', 'PaymentMethod', 'MonthlyCharges', 'TotalCharges']
-                  
-    input_data = input_data[cols_order]
+    # Ensure we only use features that the model expects
+    input_data = input_data[features]
 
     input_scaled = scaler.transform(input_data)
 
@@ -121,7 +107,7 @@ def main():
         # Feature Importance (Optional)
         st.subheader("Model Insights")
         importances = model.feature_importances_
-        feature_df = pd.DataFrame({'Feature': cols_order, 'Importance': importances})
+        feature_df = pd.DataFrame({'Feature': features, 'Importance': importances})
         feature_df = feature_df.sort_values(by='Importance', ascending=False).head(5)
         st.bar_chart(feature_df.set_index('Feature'))
 
