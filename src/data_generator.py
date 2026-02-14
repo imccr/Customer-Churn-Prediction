@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import random
+import os
 
 def generate_data(num_rows=5000):
     """
@@ -65,11 +66,11 @@ def generate_data(num_rows=5000):
 if __name__ == "__main__":
     print("Generating synthetic data...")
     df = generate_data()
-    output_path = "../data/telecom_churn.csv"
-    try:
-        df.to_csv(output_path, index=False)
-        print(f"Data saved to {output_path}")
-    except FileNotFoundError:
-        # Fallback if running from root
-        df.to_csv("data/telecom_churn.csv", index=False)
-        print("Data saved to data/telecom_churn.csv")
+    # Determine correct path
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.dirname(script_dir)
+    output_path = os.path.join(project_root, 'data', 'telecom_churn.csv')
+    
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    df.to_csv(output_path, index=False)
+    print(f"Data saved to {output_path}")
