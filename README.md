@@ -12,7 +12,7 @@ An end-to-end Machine Learning project to predict customer churn in the telecomm
 -   **Machine Learning Pipeline**:
     -   Data Preprocessing (Encoding, Scaling).
     -   Model Training (Random Forest Classifier).
-    -   Model Evaluation.
+    -   Model Evaluation. 
 -   **Interactive Dashboard**: A user-friendly web app built with Streamlit for real-time predictions.
 
 ## 🛠️ Tech Stack
