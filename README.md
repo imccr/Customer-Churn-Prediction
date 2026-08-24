@@ -4,7 +4,7 @@
 ![Streamlit](https://img.shields.io/badge/Streamlit-App-red)
 ![Scikit-Learn](https://img.shields.io/badge/Library-Scikit--Learn-orange)
 
-An end-to-end Machine Learning project to predict customer churn in the telecommunications industry. This project demonstrates the full ML lifecycle: from synthetic data generation to model training and deployment via an interactive Streamlit dashboard.
+An end-to-end Machine Learning project to predict customer churn in the telecommunications industry. This project demonstrates the full ML lifecycle: from synthetic data generation to model training and deployment via an interactive Streamlit dashboard. 
 
 ## 🌟 Features
 
