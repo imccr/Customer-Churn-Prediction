@@ -11,7 +11,7 @@ An end-to-end Machine Learning project to predict customer churn in the telecomm
 -   **Synthetic Data Generation**: Creates a realistic telco dataset using `numpy` and `pandas`.
 -   **Machine Learning Pipeline**:
     -   Data Preprocessing (Encoding, Scaling).
-    -   Model Training (Random Forest Classifier).
+    -   Model Training (Random Forest Classifier). 
     -   Model Evaluation. 
 -   **Interactive Dashboard**: A user-friendly web app built with Streamlit for real-time predictions.
 
