@@ -21,7 +21,7 @@ An end-to-end Machine Learning project to predict customer churn in the telecomm
 -   **Libraries**: Pandas, NumPy, Scikit-learn, Streamlit, Joblib
 -   **Algorithm**: Random Forest Classifier
 
-## 📂 Project Structure
+## 📂 Project Structure 
 
 ```bash
 Customers-Churn-Prediction-ML/
