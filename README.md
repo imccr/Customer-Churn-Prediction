@@ -74,7 +74,7 @@ streamlit run app.py
 The Random Forest model achieves high accuracy by analyzing key features such as:
 -   Contract Type (Month-to-month vs. Yearly)
 -   Tenure
--   Monthly Charges
+-   Monthly Charges                                
 -   Internet Service Type
 
 ## 🤝 Contribution
