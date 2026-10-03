@@ -5,7 +5,7 @@
 ![Scikit-Learn](https://img.shields.io/badge/Library-Scikit--Learn-orange)
 
 An end-to-end Machine Learning project to predict customer churn in the telecommunications industry. This project demonstrates the full ML lifecycle: from synthetic data generation to model training and deployment via an interactive Streamlit dashboard.  
- 
+  
 ## 🌟 Features   
   
 -   **Synthetic Data Generation**: Creates a realistic telco dataset using `numpy` and `pandas`.  
